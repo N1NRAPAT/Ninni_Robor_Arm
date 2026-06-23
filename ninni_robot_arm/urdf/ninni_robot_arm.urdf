@@ -7,7 +7,11 @@
   <material name="blue">
     <color rgba="0.2 0.4 0.8 1"/>
   </material>
+  <material name="dark">
+    <color rgba="0.2 0.2 0.2 1"/>
+  </material>
 
+  <!-- BASE NINNI -->
   <link name="base_link">
     <visual>
       <geometry>
@@ -17,6 +21,7 @@
     </visual>
   </link>
 
+  <!-- JOINT 1 — Base rotation (yaw) -->
   <link name="link1">
     <visual>
       <origin xyz="0 0 0.075" rpy="0 0 0"/>
@@ -26,7 +31,6 @@
       <material name="blue"/>
     </visual>
   </link>
-
   <joint name="joint1" type="revolute">
     <parent link="base_link"/>
     <child link="link1"/>
@@ -35,6 +39,7 @@
     <limit lower="-3.14" upper="3.14" effort="10" velocity="1.0"/>
   </joint>
 
+  <!-- JOINT 2 — Shoulder (pitch) -->
   <link name="link2">
     <visual>
       <origin xyz="0 0 0.075" rpy="0 0 0"/>
@@ -44,15 +49,15 @@
       <material name="grey"/>
     </visual>
   </link>
-
   <joint name="joint2" type="revolute">
     <parent link="link1"/>
     <child link="link2"/>
-    <origin xyz="0 0 0.15" rpy="0 1.57 0"/>
+    <origin xyz="0 0 0.15" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
     <limit lower="-1.57" upper="1.57" effort="10" velocity="1.0"/>
   </joint>
 
+  <!-- JOINT 3 — Elbow (pitch) -->
   <link name="link3">
     <visual>
       <origin xyz="0 0 0.06" rpy="0 0 0"/>
@@ -62,13 +67,64 @@
       <material name="blue"/>
     </visual>
   </link>
-
   <joint name="joint3" type="revolute">
     <parent link="link2"/>
     <child link="link3"/>
     <origin xyz="0 0 0.15" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
     <limit lower="-2.0" upper="2.0" effort="10" velocity="1.0"/>
+  </joint>
+
+  <!-- JOINT 4 — Wrist pitch -->
+  <link name="link4">
+    <visual>
+      <origin xyz="0 0 0.04" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.03 0.03 0.08"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+  </link>
+  <joint name="joint4" type="revolute">
+    <parent link="link3"/>
+    <child link="link4"/>
+    <origin xyz="0 0 0.12" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.57" upper="1.57" effort="10" velocity="1.0"/>
+  </joint>
+
+  <!-- JOINT 5 — Wrist roll -->
+  <link name="link5">
+    <visual>
+      <origin xyz="0 0 0.03" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.02" length="0.06"/>
+      </geometry>
+      <material name="dark"/>
+    </visual>
+  </link>
+  <joint name="joint5" type="revolute">
+    <parent link="link4"/>
+    <child link="link5"/>
+    <origin xyz="0 0 0.08" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14" upper="3.14" effort="10" velocity="1.0"/>
+  </joint>
+
+  <!-- GRIPPER (end effector) -->
+  <link name="gripper_link">
+    <visual>
+      <origin xyz="0 0 0.02" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.04 0.02 0.04"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+  </link>
+  <joint name="gripper_joint" type="fixed">
+    <parent link="link5"/>
+    <child link="gripper_link"/>
+    <origin xyz="0 0 0.06" rpy="0 0 0"/>
   </joint>
 
 </robot>
