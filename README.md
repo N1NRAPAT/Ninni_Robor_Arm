@@ -1,4 +1,4 @@
-# Ninni Robot Arm 🦾
+# Ninni Robot Arm 
 
 **Summer Project** · Started: 21 June 2026 · Author: Ninrapat Suttinual
 
@@ -6,22 +6,7 @@ An open-source 5-DOF desktop robot arm integrating **STM32 firmware**, **ROS2**,
 
 ---
 
-## 🎯 Project Goals
-
-| # | Goal | Status |
-|---|------|--------|
-| 1 | Build and assemble a 5-joint physical robot arm with 3D-printed structure | 🔧 In progress |
-| 2 | Implement forward kinematics (FK) — compute end-effector pose from joint angles | 📐 Planned |
-| 3 | Implement inverse kinematics (IK) — solve joint angles from target XYZ pose | 📐 Planned |
-| 4 | Integrate ROS2 with URDF model and visualize in RViz2 before physical execution | ✅ ROS2 installed |
-| 5 | Develop CUDA-accelerated computer vision pipeline (real-time object detection) | 🔧 In progress |
-| 6 | Connect CV output to IK solver for vision-guided grasping | 🔮 Future |
-| 7 | Run MoveIt2 for motion planning and collision avoidance | 🔮 Future |
-| 8 | Open-source the full stack for anyone learning robot arm development | 🎯 Ongoing |
-
----
-
-## 🧠 Theory & Concepts
+##  Theory & Concepts
 
 ### Forward Kinematics (FK)
 Given a set of joint angles **θ = [θ₁, θ₂, θ₃, θ₄, θ₅]**, FK computes the position and orientation of the end-effector (gripper) in 3D space using **Denavit–Hartenberg (DH) parameters**. Each joint transformation is represented as a 4×4 homogeneous transformation matrix:
@@ -54,7 +39,7 @@ Real-time perception runs on an RTX 5080 GPU inside a Docker container. The pipe
 
 ---
 
-## 🏗️ System Architecture
+##  System Architecture
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -84,7 +69,7 @@ Real-time perception runs on an RTX 5080 GPU inside a Docker container. The pipe
 
 ---
 
-## 🔌 STM32 NUCLEO-F446RE — Pin Mapping
+##  STM32 NUCLEO-F446RE — Pin Mapping
 
 | Pin | Label | Connected To | Notes |
 |-----|-------|-------------|-------|
@@ -100,7 +85,7 @@ Real-time perception runs on an RTX 5080 GPU inside a Docker container. The pipe
 > **Note:** The Feetech STS3215 uses a **single-wire half-duplex UART** bus. TX and RX share the same wire via the Waveshare Bus Servo Adapter (A). The direction-control GPIO must toggle before each read/write operation.
 
 
-## 🧰 Hardware BOM
+##  Hardware BOM
 
 | Component | Model | Qty | Unit Price (USD) | Notes |
 |-----------|-------|-----|-----------------|-------|
@@ -113,15 +98,15 @@ Real-time perception runs on an RTX 5080 GPU inside a Docker container. The pipe
 
 ---
 
-## 🗺️ Development Roadmap
+##  Development Roadmap
 
-### Phase 1 — Infrastructure ✅
+### Phase 1 — Infrastructure 
 - [x] ROS2 Humble installed on PC (WSL2 Ubuntu 22.04)
 - [x] CUDA 12.8 verified in Docker (RTX 5080, `sm_89`)
 - [x] RViz2 running via WSLg
 - [x] Architecture finalized: PC + Docker + STM32
 
-### Phase 2 — Robot Description & Visualization 🔧
+### Phase 2 — Robot Description & Visualization 
 - [ ] Write URDF for 5-DOF arm
 - [ ] Launch `robot_state_publisher` + `joint_state_publisher_gui`
 - [ ] Visualize full arm in RViz2 with interactive sliders
@@ -149,7 +134,7 @@ Real-time perception runs on an RTX 5080 GPU inside a Docker container. The pipe
 
 ---
 
-## 🛠️ Software Stack
+##  Software Stack
 
 | Layer | Tool | Purpose |
 |-------|------|---------|
@@ -164,7 +149,7 @@ Real-time perception runs on an RTX 5080 GPU inside a Docker container. The pipe
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ```bash
 # Clone the repo
@@ -184,6 +169,3 @@ rviz2
 
 ---
 
-## 📄 License
-
-Open source — contributions and forks welcome. Built for learning; shared for the community.
