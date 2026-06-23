@@ -1,0 +1,199 @@
+[0.000000] (-) TimerEvent: {}
+[0.000441] (ninni_robot_arm) JobQueued: {'identifier': 'ninni_robot_arm', 'dependencies': OrderedDict()}
+[0.000863] (ninni_robot_arm) JobStarted: {'identifier': 'ninni_robot_arm'}
+[0.020506] (ninni_robot_arm) JobProgress: {'identifier': 'ninni_robot_arm', 'progress': 'cmake'}
+[0.041765] (ninni_robot_arm) Command: {'cmd': ['/usr/bin/cmake', '/mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/ninni_robot_arm', '-DCMAKE_INSTALL_PREFIX=/mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm'], 'cwd': '/mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/build/ninni_robot_arm', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ninnin'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('WT_PROFILE_ID', '{1b229b97-4c64-59da-a09f-1601ea1beea4}'), ('HOME', '/home/ninnin'), ('OLDPWD', '/home/ninnin'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'ninnin'), ('NAME', 'DESKTOP-I337UO3'), ('WSL_INTEROP', '/run/WSL/875_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/cuda-12.8/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/Docker/host/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/mingw64/bin:/mnt/c/Users/User/AppData/Local/Programs/Python/Python313/Scripts/:/mnt/c/Users/User/AppData/Local/Programs/Python/Python313/:/mnt/c/Users/User/AppData/Local/Programs/Python/Launcher/:/mnt/c/Users/User/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/User/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('WT_SESSION', 'a3a65b46-063a-447e-90bd-2328c64c85c3'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/build/ninni_robot_arm'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'WT_SESSION:WT_PROFILE_ID:'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.099140] (-) TimerEvent: {}
+[0.199714] (-) TimerEvent: {}
+[0.267490] (ninni_robot_arm) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.299818] (-) TimerEvent: {}
+[0.400550] (-) TimerEvent: {}
+[0.501168] (-) TimerEvent: {}
+[0.594297] (ninni_robot_arm) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.601220] (-) TimerEvent: {}
+[0.701775] (-) TimerEvent: {}
+[0.742548] (ninni_robot_arm) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.801826] (-) TimerEvent: {}
+[0.902635] (-) TimerEvent: {}
+[1.003548] (-) TimerEvent: {}
+[1.104134] (-) TimerEvent: {}
+[1.148327] (ninni_robot_arm) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.168978] (ninni_robot_arm) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[1.170463] (ninni_robot_arm) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.172061] (ninni_robot_arm) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.203895] (ninni_robot_arm) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[1.205638] (-) TimerEvent: {}
+[1.306418] (-) TimerEvent: {}
+[1.406970] (-) TimerEvent: {}
+[1.507646] (-) TimerEvent: {}
+[1.569030] (ninni_robot_arm) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[1.588463] (ninni_robot_arm) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[1.590261] (ninni_robot_arm) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[1.591648] (ninni_robot_arm) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[1.607746] (-) TimerEvent: {}
+[1.626937] (ninni_robot_arm) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[1.707842] (-) TimerEvent: {}
+[1.732553] (ninni_robot_arm) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[1.807944] (-) TimerEvent: {}
+[1.869820] (ninni_robot_arm) StdoutLine: {'line': b'-- Found rclcpp: 16.0.19 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[1.908062] (-) TimerEvent: {}
+[1.978616] (ninni_robot_arm) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[1.983313] (ninni_robot_arm) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[1.992659] (ninni_robot_arm) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[2.007307] (ninni_robot_arm) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.008707] (-) TimerEvent: {}
+[2.022929] (ninni_robot_arm) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.066527] (ninni_robot_arm) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[2.069987] (ninni_robot_arm) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[2.108804] (-) TimerEvent: {}
+[2.209457] (-) TimerEvent: {}
+[2.310175] (-) TimerEvent: {}
+[2.410891] (-) TimerEvent: {}
+[2.511465] (-) TimerEvent: {}
+[2.612095] (-) TimerEvent: {}
+[2.660286] (ninni_robot_arm) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[2.712215] (-) TimerEvent: {}
+[2.814519] (-) TimerEvent: {}
+[2.915314] (-) TimerEvent: {}
+[3.016023] (-) TimerEvent: {}
+[3.116910] (-) TimerEvent: {}
+[3.217695] (-) TimerEvent: {}
+[3.304681] (ninni_robot_arm) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[3.317886] (-) TimerEvent: {}
+[3.418670] (-) TimerEvent: {}
+[3.519536] (-) TimerEvent: {}
+[3.620270] (-) TimerEvent: {}
+[3.721107] (-) TimerEvent: {}
+[3.823403] (-) TimerEvent: {}
+[3.924633] (-) TimerEvent: {}
+[4.027033] (-) TimerEvent: {}
+[4.127827] (-) TimerEvent: {}
+[4.228464] (-) TimerEvent: {}
+[4.329154] (-) TimerEvent: {}
+[4.429908] (-) TimerEvent: {}
+[4.471702] (ninni_robot_arm) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[4.512787] (ninni_robot_arm) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[4.530059] (-) TimerEvent: {}
+[4.630708] (-) TimerEvent: {}
+[4.731348] (-) TimerEvent: {}
+[4.832058] (-) TimerEvent: {}
+[4.896212] (ninni_robot_arm) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[4.905908] (ninni_robot_arm) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[4.932168] (-) TimerEvent: {}
+[5.032766] (-) TimerEvent: {}
+[5.133391] (-) TimerEvent: {}
+[5.234059] (-) TimerEvent: {}
+[5.270094] (ninni_robot_arm) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[5.274015] (ninni_robot_arm) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[5.326046] (ninni_robot_arm) StdoutLine: {'line': b'-- Found sensor_msgs: 4.9.1 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[5.334197] (-) TimerEvent: {}
+[5.435810] (-) TimerEvent: {}
+[5.537598] (-) TimerEvent: {}
+[5.638929] (-) TimerEvent: {}
+[5.671554] (ninni_robot_arm) StdoutLine: {'line': b'-- Configuring done\n'}
+[5.739470] (-) TimerEvent: {}
+[5.840728] (-) TimerEvent: {}
+[5.895694] (ninni_robot_arm) StdoutLine: {'line': b'-- Generating done\n'}
+[5.941081] (-) TimerEvent: {}
+[6.044403] (-) TimerEvent: {}
+[6.085753] (ninni_robot_arm) StdoutLine: {'line': b'-- Build files have been written to: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/build/ninni_robot_arm\n'}
+[6.091569] (ninni_robot_arm) CommandEnded: {'returncode': 0}
+[6.095075] (ninni_robot_arm) JobProgress: {'identifier': 'ninni_robot_arm', 'progress': 'build'}
+[6.098591] (ninni_robot_arm) Command: {'cmd': ['/usr/bin/cmake', '--build', '/mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/build/ninni_robot_arm', '--', '-j16', '-l16'], 'cwd': '/mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/build/ninni_robot_arm', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ninnin'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('WT_PROFILE_ID', '{1b229b97-4c64-59da-a09f-1601ea1beea4}'), ('HOME', '/home/ninnin'), ('OLDPWD', '/home/ninnin'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'ninnin'), ('NAME', 'DESKTOP-I337UO3'), ('WSL_INTEROP', '/run/WSL/875_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/cuda-12.8/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/Docker/host/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/mingw64/bin:/mnt/c/Users/User/AppData/Local/Programs/Python/Python313/Scripts/:/mnt/c/Users/User/AppData/Local/Programs/Python/Python313/:/mnt/c/Users/User/AppData/Local/Programs/Python/Launcher/:/mnt/c/Users/User/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/User/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('WT_SESSION', 'a3a65b46-063a-447e-90bd-2328c64c85c3'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/build/ninni_robot_arm'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'WT_SESSION:WT_PROFILE_ID:'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[6.144608] (-) TimerEvent: {}
+[6.214478] (ninni_robot_arm) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/arm_rotator.dir/src/arm_rotator.cpp.o\x1b[0m\n'}
+[6.244726] (-) TimerEvent: {}
+[6.345517] (-) TimerEvent: {}
+[6.446429] (-) TimerEvent: {}
+[6.547848] (-) TimerEvent: {}
+[6.652544] (-) TimerEvent: {}
+[6.753465] (-) TimerEvent: {}
+[6.854489] (-) TimerEvent: {}
+[6.955495] (-) TimerEvent: {}
+[7.056463] (-) TimerEvent: {}
+[7.157538] (-) TimerEvent: {}
+[7.258556] (-) TimerEvent: {}
+[7.359633] (-) TimerEvent: {}
+[7.460615] (-) TimerEvent: {}
+[7.561696] (-) TimerEvent: {}
+[7.662800] (-) TimerEvent: {}
+[7.763682] (-) TimerEvent: {}
+[7.864476] (-) TimerEvent: {}
+[7.965263] (-) TimerEvent: {}
+[8.066036] (-) TimerEvent: {}
+[8.166877] (-) TimerEvent: {}
+[8.267800] (-) TimerEvent: {}
+[8.368595] (-) TimerEvent: {}
+[8.469400] (-) TimerEvent: {}
+[8.570263] (-) TimerEvent: {}
+[8.671100] (-) TimerEvent: {}
+[8.771966] (-) TimerEvent: {}
+[8.872817] (-) TimerEvent: {}
+[8.973719] (-) TimerEvent: {}
+[9.074583] (-) TimerEvent: {}
+[9.175499] (-) TimerEvent: {}
+[9.276449] (-) TimerEvent: {}
+[9.377206] (-) TimerEvent: {}
+[9.477756] (-) TimerEvent: {}
+[9.578406] (-) TimerEvent: {}
+[9.678950] (-) TimerEvent: {}
+[9.779616] (-) TimerEvent: {}
+[9.799293] (ninni_robot_arm) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable arm_rotator\x1b[0m\n'}
+[9.879655] (-) TimerEvent: {}
+[9.980295] (-) TimerEvent: {}
+[10.080967] (-) TimerEvent: {}
+[10.181603] (-) TimerEvent: {}
+[10.282163] (-) TimerEvent: {}
+[10.382734] (-) TimerEvent: {}
+[10.483527] (-) TimerEvent: {}
+[10.584097] (-) TimerEvent: {}
+[10.684636] (-) TimerEvent: {}
+[10.785203] (-) TimerEvent: {}
+[10.885730] (-) TimerEvent: {}
+[10.887395] (ninni_robot_arm) StdoutLine: {'line': b'[100%] Built target arm_rotator\n'}
+[10.904477] (ninni_robot_arm) CommandEnded: {'returncode': 0}
+[10.914877] (ninni_robot_arm) JobProgress: {'identifier': 'ninni_robot_arm', 'progress': 'install'}
+[10.923122] (ninni_robot_arm) Command: {'cmd': ['/usr/bin/cmake', '--install', '/mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/build/ninni_robot_arm'], 'cwd': '/mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/build/ninni_robot_arm', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ninnin'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('WT_PROFILE_ID', '{1b229b97-4c64-59da-a09f-1601ea1beea4}'), ('HOME', '/home/ninnin'), ('OLDPWD', '/home/ninnin'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'ninnin'), ('NAME', 'DESKTOP-I337UO3'), ('WSL_INTEROP', '/run/WSL/875_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/cuda-12.8/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/Docker/host/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/mingw64/bin:/mnt/c/Users/User/AppData/Local/Programs/Python/Python313/Scripts/:/mnt/c/Users/User/AppData/Local/Programs/Python/Python313/:/mnt/c/Users/User/AppData/Local/Programs/Python/Launcher/:/mnt/c/Users/User/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/User/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('WT_SESSION', 'a3a65b46-063a-447e-90bd-2328c64c85c3'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/build/ninni_robot_arm'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'WT_SESSION:WT_PROFILE_ID:'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[10.929312] (ninni_robot_arm) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[10.940286] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/lib/ninni_robot_arm/arm_rotator\n'}
+[10.985835] (-) TimerEvent: {}
+[11.068533] (ninni_robot_arm) StdoutLine: {'line': b'-- Set runtime path of "/mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/lib/ninni_robot_arm/arm_rotator" to ""\n'}
+[11.073712] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ninni_robot_arm/urdf\n'}
+[11.085872] (-) TimerEvent: {}
+[11.093480] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ninni_robot_arm/urdf/ninni_robot_arm.urdf\n'}
+[11.131042] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ninni_robot_arm/launch\n'}
+[11.148489] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ninni_robot_arm/launch/.gitkeep\n'}
+[11.184797] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ninni_robot_arm/config\n'}
+[11.186266] (-) TimerEvent: {}
+[11.201901] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ninni_robot_arm/config/.gitkeep\n'}
+[11.237449] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ninni_robot_arm/rviz\n'}
+[11.254061] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ninni_robot_arm/rviz/arm_view.rviz\n'}
+[11.286374] (-) TimerEvent: {}
+[11.315480] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ament_index/resource_index/package_run_dependencies/ninni_robot_arm\n'}
+[11.383522] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ament_index/resource_index/parent_prefix_path/ninni_robot_arm\n'}
+[11.386458] (-) TimerEvent: {}
+[11.435844] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ninni_robot_arm/environment/ament_prefix_path.sh\n'}
+[11.472854] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ninni_robot_arm/environment/ament_prefix_path.dsv\n'}
+[11.486563] (-) TimerEvent: {}
+[11.512147] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ninni_robot_arm/environment/path.sh\n'}
+[11.548010] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ninni_robot_arm/environment/path.dsv\n'}
+[11.586640] (-) TimerEvent: {}
+[11.587179] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ninni_robot_arm/local_setup.bash\n'}
+[11.623842] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ninni_robot_arm/local_setup.sh\n'}
+[11.659488] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ninni_robot_arm/local_setup.zsh\n'}
+[11.686717] (-) TimerEvent: {}
+[11.694154] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ninni_robot_arm/local_setup.dsv\n'}
+[11.728544] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ninni_robot_arm/package.dsv\n'}
+[11.777039] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ament_index/resource_index/packages/ninni_robot_arm\n'}
+[11.786772] (-) TimerEvent: {}
+[11.839503] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ninni_robot_arm/cmake/ninni_robot_armConfig.cmake\n'}
+[11.883656] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ninni_robot_arm/cmake/ninni_robot_armConfig-version.cmake\n'}
+[11.886840] (-) TimerEvent: {}
+[11.925061] (ninni_robot_arm) StdoutLine: {'line': b'-- Installing: /mnt/c/Users/User/Documents/Ninni_Robot_Arm/Ninni_Robor_Arm/install/ninni_robot_arm/share/ninni_robot_arm/package.xml\n'}
+[11.961523] (ninni_robot_arm) CommandEnded: {'returncode': 0}
+[11.986921] (-) TimerEvent: {}
+[12.087845] (-) TimerEvent: {}
+[12.188528] (-) TimerEvent: {}
+[12.289080] (-) TimerEvent: {}
+[12.331282] (ninni_robot_arm) JobEnded: {'identifier': 'ninni_robot_arm', 'rc': 0}
+[12.341383] (-) EventReactorShutdown: {}

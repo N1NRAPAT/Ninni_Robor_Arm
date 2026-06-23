@@ -1,0 +1,4 @@
+source;share/ninni_robot_arm/local_setup.bash
+source;share/ninni_robot_arm/local_setup.dsv
+source;share/ninni_robot_arm/local_setup.sh
+source;share/ninni_robot_arm/local_setup.zsh
