@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-humble-joint-state-publisher-gui \
     ros-humble-xacro \
     ros-humble-tf2-tools \
+    ros-humble-cv-bridge \
     ros-humble-demo-nodes-cpp \
     python3-colcon-common-extensions \
     python3-rosdep \
