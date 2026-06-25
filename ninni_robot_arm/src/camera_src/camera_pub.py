@@ -4,19 +4,21 @@ from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 import cv2
 
+# Windows host MJPEG stream (ffmpeg serving the C920)
+STREAM_URL = 'http://172.31.208.1:8080'
+
 class CameraPublisher(Node):
     def __init__(self):
         super().__init__('camera_publisher')
         self.publisher = self.create_publisher(Image, '/image_raw', 10)
         self.timer = self.create_timer(1/30.0, self.timer_callback)
         self.bridge = CvBridge()
-        self.cap = cv2.VideoCapture('/dev/video0')
-        self.cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*'MJPG'))
-        self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
-        self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
-        self.cap.set(cv2.CAP_PROP_FPS, 30)
+        self.cap = cv2.VideoCapture(STREAM_URL)
         self.count = 0
-        self.get_logger().info('Camera publisher started!')
+        if not self.cap.isOpened():
+            self.get_logger().error(f'Failed to open stream: {STREAM_URL}')
+        else:
+            self.get_logger().info(f'Camera publisher started! Stream: {STREAM_URL}')
 
     def timer_callback(self):
         ret, frame = self.cap.read()
