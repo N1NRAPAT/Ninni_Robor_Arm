@@ -4,4 +4,4 @@ log/
 __pycache__/
 *.pyc
 firmware/.pio/
-firmware/.vscode/
+firmware/.vscode/.vscode/
