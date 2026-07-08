@@ -22,6 +22,8 @@ install(PROGRAMS
   src/camera_src/cuda_cv_node.py
   src/camera_src/yolo_detect_node.py
   src/camera_src/stm32_serial_node.py
+  src/servo_src/servo_bridge_node.py
+  src/servo_src/servo_dance_test.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
