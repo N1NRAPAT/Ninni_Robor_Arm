@@ -38,9 +38,10 @@ POSITION_MODE = 0
 DIRECTION_BIT = 0x8000
 
 
+# Reuse code from servo_bridge_node.py for auto-detecting the servo port
 def find_servo_port(baudrate, ping_id=1, logger=None):
     """Scan /dev/ttyACM* and /dev/ttyUSB*, return first port that responds to a ping."""
-    candidates = sorted(glob.glob('/dev/ttyACM*') + glob.glob('/dev/ttyUSB*'))
+    candidates = sorted(glob.glob('/dev/ttyACM*') + glob.glob('/dev/ttyUSB*')) # sort for consistent order
     if logger:
         logger.info(f'Auto-detecting servo port, candidates: {candidates}')
 
@@ -52,14 +53,15 @@ def find_servo_port(baudrate, ping_id=1, logger=None):
             if not ph.setBaudRate(baudrate):
                 ph.closePort()
                 continue
+        # If the port cannot be opened or the baud rate cannot be set, skip to the next candidate.
             servo = sms_sts(ph)
             _, result, _ = servo.ping(ping_id)
             ph.closePort()
-            if result == 0:
+            if result == 0: # mean the servo responded successfully
                 if logger:
                     logger.info(f'  Found responsive servo on {port}')
                 return port
-        except Exception:
+        except Exception: # fail safely and continue to the next candidate
             try:
                 ph.closePort()
             except Exception:

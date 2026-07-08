@@ -5,3 +5,5 @@ __pycache__/
 *.pyc
 firmware/.pio/
 firmware/.vscode/.vscode/
+run_menu.sh/
+start_desktop.sh/
