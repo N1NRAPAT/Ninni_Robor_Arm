@@ -3,10 +3,12 @@
 servo_bridge_node.py
 ROS2 node: subscribes to /joint_states (radians) -> converts to STS3215 ticks -> writes to servo bus.
 
-Pipeline:
-  IK solver -> /joint_states -> [this node] -> /dev/ttyACM0 -> Waveshare adapter -> STS3215 servos
+Auto-detects the correct /dev/ttyACM* port by trying each candidate and
+pinging servo ID 1 - no more manually figuring out ACM0 vs ACM1 each session.
+Set serial_port param to a specific path (e.g. /dev/ttyACM1) to skip auto-detect.
 """
 
+import glob
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
@@ -14,17 +16,59 @@ from scservo_sdk import sms_sts, PortHandler
 import math
 
 
+def find_servo_port(baudrate, ping_id=1, logger=None):
+    """Scan /dev/ttyACM* and /dev/ttyUSB*, return first port that responds to a ping."""
+    candidates = sorted(glob.glob('/dev/ttyACM*') + glob.glob('/dev/ttyUSB*'))
+    if logger:
+        logger.info(f'Auto-detecting servo port, candidates: {candidates}')
+
+    for port in candidates:
+        ph = PortHandler(port)
+        try:
+            if not ph.openPort():
+                continue
+            if not ph.setBaudRate(baudrate):
+                ph.closePort()
+                continue
+            servo = sms_sts(ph)
+            _, result, _ = servo.ping(ping_id)
+            ph.closePort()
+            if result == 0:
+                if logger:
+                    logger.info(f'  Found responsive servo on {port}')
+                return port
+        except Exception:
+            try:
+                ph.closePort()
+            except Exception:
+                pass
+            continue
+
+    return None
+
+
 class ServoBridgeNode(Node):
     def __init__(self):
         super().__init__('servo_bridge_node')
 
-        self.declare_parameter('serial_port', '/dev/ttyACM0')
+        self.declare_parameter('serial_port', 'auto')
         self.declare_parameter('baudrate', 1000000)
-        self.declare_parameter('move_speed', 2000)   # 0-4095ish range, higher = faster
-        self.declare_parameter('move_acc', 50)       # 0-255 range, acceleration
+        self.declare_parameter('move_speed', 500)
+        self.declare_parameter('move_acc', 50)
 
-        serial_port = self.get_parameter('serial_port').value
+        requested_port = self.get_parameter('serial_port').value
         baudrate = self.get_parameter('baudrate').value
+
+        if requested_port == 'auto':
+            serial_port = find_servo_port(baudrate, ping_id=1, logger=self.get_logger())
+            if serial_port is None:
+                self.get_logger().error(
+                    'Auto-detect found no responsive servo on any /dev/ttyACM*/ttyUSB* port. '
+                    'Check usbipd attach + 12V power, or pass serial_port explicitly.'
+                )
+                raise RuntimeError('No servo port found')
+        else:
+            serial_port = requested_port
 
         self.joint_to_servo = {
             'joint1': 1,
@@ -80,12 +124,9 @@ class ServoBridgeNode(Node):
         return tick
 
     def joint_states_callback(self, msg):
-        # WritePosEx signature is (id, position, speed, acc) - NOT (id, position, time, speed).
-        # speed: 0-4095ish range (higher = faster movement)
-        # acc: 0-255 range ONLY - this is a single byte, must stay small
         move_speed = int(self.get_parameter('move_speed').value)
         move_acc = int(self.get_parameter('move_acc').value)
-        move_acc = max(0, min(255, move_acc))  # hard clamp - this is what overflowed before
+        move_acc = max(0, min(255, move_acc))
 
         for i, joint_name in enumerate(msg.name):
             if joint_name not in self.joint_to_servo:
