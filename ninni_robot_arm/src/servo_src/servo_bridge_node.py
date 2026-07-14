@@ -5,7 +5,7 @@ import glob
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
-from scservo_sdk import sms_sts, PortHandler # STS3215 servo driver
+from scservo_sdk import sms_sts, PortHandler
 import math
 
 
@@ -20,7 +20,7 @@ If no responsive servo is found on any port/ID combination, it returns None.
 
 def find_servo_port(baudrate, ping_ids=range(1, 6), logger=None):
     """Scan /dev/ttyACM* and /dev/ttyUSB*, return first port where ANY id in ping_ids responds."""
-    candidates = sorted(glob.glob('/dev/ttyACM*') + glob.glob('/dev/ttyUSB*')) # sort for consistent order
+    candidates = sorted(glob.glob('/dev/ttyACM*') + glob.glob('/dev/ttyUSB*'))
     if logger:
         logger.info(f'Auto-detecting servo port, candidates: {candidates}, checking IDs: {list(ping_ids)}')
 
@@ -32,12 +32,11 @@ def find_servo_port(baudrate, ping_ids=range(1, 6), logger=None):
             if not ph.setBaudRate(baudrate):
                 ph.closePort()
                 continue
-        # If the port cannot be opened or the baud rate cannot be set, skip to the next candidate.
             servo = sms_sts(ph)
             found_id = None
             for pid in ping_ids:
                 _, result, _ = servo.ping(pid)
-                if result == 0: # mean the servo responded successfully
+                if result == 0:
                     found_id = pid
                     break
             ph.closePort()
@@ -45,7 +44,7 @@ def find_servo_port(baudrate, ping_ids=range(1, 6), logger=None):
                 if logger:
                     logger.info(f'  Found responsive servo (ID {found_id}) on {port}')
                 return port
-        except Exception: # fail safely and continue to the next candidate
+        except Exception:
             try:
                 ph.closePort()
             except Exception:
@@ -61,20 +60,21 @@ class ServoBridgeNode(Node):
 
         self.declare_parameter('serial_port', 'auto') 
         self.declare_parameter('baudrate', 1000000)
-        self.declare_parameter('move_speed', 4050) # speed of servo in range 0 - 4095
-        self.declare_parameter('move_acc', 220) # acceleration of servo in range 0 - 255
+        self.declare_parameter('move_speed', 2000)
+        self.declare_parameter('move_acc', 100)
+        self.declare_parameter('telemetry_interval', 0.5)  # seconds between telemetry reads
 
         requested_port = self.get_parameter('serial_port').value
         baudrate = self.get_parameter('baudrate').value
 
-        if requested_port == 'auto': # true statement
+        if requested_port == 'auto':
             serial_port = find_servo_port(baudrate, ping_ids=range(1, 6), logger=self.get_logger())
             if serial_port is None:
                 self.get_logger().error(
                     'Auto-detect found no responsive servo (checked IDs 1-5) on any /dev/ttyACM*/ttyUSB* port. '
                     'Check usbipd attach + 12V power, or pass serial_port explicitly.'
                     'Check wire connections and power supply to the servo. Ensure that the servo is powered and connected properly.'
-                ) # red signal error message
+                )
                 raise RuntimeError('No servo port found') 
         else:
             serial_port = requested_port
@@ -93,7 +93,6 @@ class ServoBridgeNode(Node):
             'joint3': {'offset_rad': math.pi, 'direction': 1, 'min_tick': 0, 'max_tick': 4095},
             'joint4': {'offset_rad': math.pi, 'direction': 1, 'min_tick': 0, 'max_tick': 4095},
             'joint5': {'offset_rad': math.pi, 'direction': 1, 'min_tick': 0, 'max_tick': 4095},
-            # initial configuration for each joint, including offset, direction, and tick limits
         }
 
         self.port_handler = PortHandler(serial_port)
@@ -123,7 +122,14 @@ class ServoBridgeNode(Node):
             10
         )
 
+        # Telemetry publisher: publishes voltage/current for all servos
+        # Using JointState: name=joint names, position=voltage(V), velocity=current(mA)
+        self.telemetry_pub = self.create_publisher(JointState, '/servo_telemetry', 10)
+        telemetry_interval = self.get_parameter('telemetry_interval').value
+        self.telemetry_timer = self.create_timer(telemetry_interval, self.telemetry_callback)
+
         self.get_logger().info('Servo bridge ready - listening on /joint_states')
+        self.get_logger().info(f'Telemetry publishing to /servo_telemetry every {telemetry_interval}s')
 
     def rad_to_tick(self, angle_rad, joint_name):
         """ Converts radians to servo ticks.
@@ -139,6 +145,33 @@ class ServoBridgeNode(Node):
         tick = int((adjusted / (2.0 * math.pi)) * 4096)
         tick = max(min_tick, min(max_tick, tick))
         return tick
+
+    def telemetry_callback(self):
+        """Read voltage and current from each servo and publish."""
+        msg = JointState()
+        msg.header.stamp = self.get_clock().now().to_msg()
+        names = []
+        voltages = []
+        currents = []
+
+        for joint_name, servo_id in self.joint_to_servo.items():
+            names.append(joint_name)
+
+            # Voltage: register 62, 1 byte, value * 0.1 = volts
+            v_raw, comm_v, _ = self.servo.read1ByteTxRx(servo_id, 62)
+            volts = v_raw * 0.1 if comm_v == 0 else 0.0
+
+            # Current: register 69, 2 bytes, value in mA
+            c_raw, comm_c, _ = self.servo.read2ByteTxRx(servo_id, 69)
+            milliamps = float(c_raw) if comm_c == 0 else 0.0
+
+            voltages.append(volts)
+            currents.append(milliamps)
+
+        msg.name = names
+        msg.position = voltages    # voltage in V
+        msg.velocity = currents    # current in mA
+        self.telemetry_pub.publish(msg)
 
     def joint_states_callback(self, msg):
         move_speed = int(self.get_parameter('move_speed').value)
