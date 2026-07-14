@@ -12,17 +12,17 @@ import math
 """AUTO-DETECT SERVO PORT
 
 This fuction is set to auto-detect the serial port that the servo is connected to. 
-It scans through /dev/ttyACM* and /dev/ttyUSB* and pings each one to see if a servo responds. 
-If a responsive servo is found, it returns the corresponding port. If no responsive servo is 
-found, it returns None.
+It scans through /dev/ttyACM* and /dev/ttyUSB* and pings a range of IDs on each to see if
+any servo responds. If a responsive servo is found, it returns the corresponding port.
+If no responsive servo is found on any port/ID combination, it returns None.
 
 """
 
-def find_servo_port(baudrate, ping_id=1, logger=None):
-    """Scan /dev/ttyACM* and /dev/ttyUSB*, return first port that responds to a ping."""
+def find_servo_port(baudrate, ping_ids=range(1, 6), logger=None):
+    """Scan /dev/ttyACM* and /dev/ttyUSB*, return first port where ANY id in ping_ids responds."""
     candidates = sorted(glob.glob('/dev/ttyACM*') + glob.glob('/dev/ttyUSB*')) # sort for consistent order
     if logger:
-        logger.info(f'Auto-detecting servo port, candidates: {candidates}')
+        logger.info(f'Auto-detecting servo port, candidates: {candidates}, checking IDs: {list(ping_ids)}')
 
     for port in candidates:
         ph = PortHandler(port)
@@ -34,11 +34,16 @@ def find_servo_port(baudrate, ping_id=1, logger=None):
                 continue
         # If the port cannot be opened or the baud rate cannot be set, skip to the next candidate.
             servo = sms_sts(ph)
-            _, result, _ = servo.ping(ping_id)
+            found_id = None
+            for pid in ping_ids:
+                _, result, _ = servo.ping(pid)
+                if result == 0: # mean the servo responded successfully
+                    found_id = pid
+                    break
             ph.closePort()
-            if result == 0: # mean the servo responded successfully
+            if found_id is not None:
                 if logger:
-                    logger.info(f'  Found responsive servo on {port}')
+                    logger.info(f'  Found responsive servo (ID {found_id}) on {port}')
                 return port
         except Exception: # fail safely and continue to the next candidate
             try:
@@ -56,17 +61,17 @@ class ServoBridgeNode(Node):
 
         self.declare_parameter('serial_port', 'auto') 
         self.declare_parameter('baudrate', 1000000)
-        self.declare_parameter('move_speed', 500) # speed of servo in range 0 - 4095
-        self.declare_parameter('move_acc', 50) # acceleration of servo in range 0 - 255
+        self.declare_parameter('move_speed', 4050) # speed of servo in range 0 - 4095
+        self.declare_parameter('move_acc', 220) # acceleration of servo in range 0 - 255
 
         requested_port = self.get_parameter('serial_port').value
         baudrate = self.get_parameter('baudrate').value
 
         if requested_port == 'auto': # true statement
-            serial_port = find_servo_port(baudrate, ping_id=1, logger=self.get_logger())
+            serial_port = find_servo_port(baudrate, ping_ids=range(1, 6), logger=self.get_logger())
             if serial_port is None:
                 self.get_logger().error(
-                    'Auto-detect found no responsive servo on any /dev/ttyACM*/ttyUSB* port. '
+                    'Auto-detect found no responsive servo (checked IDs 1-5) on any /dev/ttyACM*/ttyUSB* port. '
                     'Check usbipd attach + 12V power, or pass serial_port explicitly.'
                     'Check wire connections and power supply to the servo. Ensure that the servo is powered and connected properly.'
                 ) # red signal error message
@@ -78,12 +83,16 @@ class ServoBridgeNode(Node):
             'joint1': 1,
             'joint2': 2,
             'joint3': 3,
+            'joint4': 4,
+            'joint5': 5,
         }
 
         self.joint_config = {
             'joint1': {'offset_rad': math.pi, 'direction': 1, 'min_tick': 0, 'max_tick': 4095},
             'joint2': {'offset_rad': math.pi, 'direction': 1, 'min_tick': 0, 'max_tick': 4095},
             'joint3': {'offset_rad': math.pi, 'direction': 1, 'min_tick': 0, 'max_tick': 4095},
+            'joint4': {'offset_rad': math.pi, 'direction': 1, 'min_tick': 0, 'max_tick': 4095},
+            'joint5': {'offset_rad': math.pi, 'direction': 1, 'min_tick': 0, 'max_tick': 4095},
             # initial configuration for each joint, including offset, direction, and tick limits
         }
 
@@ -116,12 +125,10 @@ class ServoBridgeNode(Node):
 
         self.get_logger().info('Servo bridge ready - listening on /joint_states')
 
- """ Converts radians
-
-    Uses the joint configuration to apply offset and direction, then scales to the servo's tick range (0-4095).
-
-"""
     def rad_to_tick(self, angle_rad, joint_name):
+        """ Converts radians to servo ticks.
+        Uses the joint configuration to apply offset and direction, then scales to the servo's tick range (0-4095).
+        """
         config = self.joint_config.get(joint_name, {})
         offset = config.get('offset_rad', math.pi)
         direction = config.get('direction', 1)

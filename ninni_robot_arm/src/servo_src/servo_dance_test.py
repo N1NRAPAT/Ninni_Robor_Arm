@@ -4,31 +4,25 @@ from rclpy.node import Node
 from sensor_msgs.msg import JointState
 import time
 import math
-
 rclpy.init()
 node = Node('servo_test')
 pub = node.create_publisher(JointState, '/joint_states', 10)
 time.sleep(0.5)
-
-# 3 full circles: 0 -> 90 -> 180 -> 270 -> 360 degrees in equal steps
-# All 3 servos move together by the same amount each step
 STEP_DEG = 45
-TOTAL_DEG = 360 * 3  # 3 full rotations
+TOTAL_DEG = 360 * 3
 DELAY = 1.0
-
 angle = 0
 step = 0
 while angle <= TOTAL_DEG:
-    rad = math.radians(angle % 360) - math.pi  # center around 0
+    rad = math.radians(angle % 360) - math.pi
     msg = JointState()
-    msg.name = ['joint1', 'joint2', 'joint3']
-    msg.position = [rad, rad, rad]  # all 3 move equally
+    msg.name = ['joint1', 'joint2', 'joint3', 'joint4', 'joint5']
+    msg.position = [rad, rad, rad, rad, rad]
     pub.publish(msg)
     step += 1
     print(f'Step {step}: {angle % 360}° ({rad:.2f} rad)')
     angle += STEP_DEG
     time.sleep(DELAY)
-
 print('Done!')
 node.destroy_node()
 rclpy.shutdown()
