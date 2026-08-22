@@ -1,0 +1,13 @@
+{
+    "configuration": "default",
+    "documentId": "b026964aa62daf9c1ecc4815",
+    "documentMicroversion": "fa88d73783ef2d69bc798db3",
+    "elementId": "d42d5e71b6aaee741f822ee7",
+    "fullConfiguration": "default",
+    "id": "MmZ7cTAmgTrkXMKJT",
+    "isStandardContent": false,
+    "name": "Servo-motor_STS3215 v10 <1>",
+    "partId": "RAEL",
+    "suppressed": false,
+    "type": "Part"
+}

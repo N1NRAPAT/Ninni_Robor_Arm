@@ -1,0 +1,13 @@
+{
+    "configuration": "default",
+    "documentId": "b026964aa62daf9c1ecc4815",
+    "documentMicroversion": "fa88d73783ef2d69bc798db3",
+    "elementId": "e3684f7fac8aea2323b49a13",
+    "fullConfiguration": "default",
+    "id": "M6xQMbYQpggf2NbJn",
+    "isStandardContent": false,
+    "name": "elbow_left <1>",
+    "partId": "RFID",
+    "suppressed": false,
+    "type": "Part"
+}
