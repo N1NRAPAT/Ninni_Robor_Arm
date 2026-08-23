@@ -9,18 +9,17 @@
     <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
     <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
     <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
-    <group name="Ninni_arm">
-        <chain base_link="base_of_shoulder" tip_link="left_cover_2"/>
+    <group name="ninni_arm">
+        <chain base_link="base_servo_board" tip_link="left_cover_2"/>
     </group>
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
-    <virtual_joint name="world_joint" type="fixed" parent_frame="world" child_link="base_of_shoulder"/>
-    <!--DISABLE COLLISIONS: Adjacent links that are physically connected-->
+    <virtual_joint name="world_joint" type="fixed" parent_frame="world" child_link="base_servo_board"/>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="base_of_shoulder" link2="base_servo_board" reason="Adjacent"/>
-    <disable_collisions link1="base_of_shoulder" link2="shoulder_left" reason="Adjacent"/>
-    <disable_collisions link1="base_servo_board" link2="shoulder_left" reason="Adjacent"/>
-    <disable_collisions link1="shoulder_left" link2="left_cover" reason="Adjacent"/>
-    <disable_collisions link1="left_cover" link2="left_cover_2" reason="Adjacent"/>
     <disable_collisions link1="base_of_shoulder" link2="left_cover" reason="Never"/>
-    <disable_collisions link1="base_servo_board" link2="left_cover" reason="Never"/>
-    <disable_collisions link1="shoulder_left" link2="left_cover_2" reason="Never"/>
+    <disable_collisions link1="base_of_shoulder" link2="shoulder_left" reason="Adjacent"/>
+    <disable_collisions link1="base_servo_board" link2="shoulder_left" reason="Never"/>
+    <disable_collisions link1="left_cover" link2="left_cover_2" reason="Adjacent"/>
+    <disable_collisions link1="left_cover" link2="shoulder_left" reason="Adjacent"/>
+    <disable_collisions link1="left_cover_2" link2="shoulder_left" reason="Never"/>
 </robot>

@@ -2,72 +2,16 @@
 <!-- Generated using onshape-to-robot -->
 <!-- Onshape https://cad.onshape.com/documents/b026964aa62daf9c1ecc4815/w/b181745cba52742b3ffb21e6/e/5ac1da73cba8f2619ef0b056 -->
 <robot name="onshape_export">
-  <!-- Link base_of_shoulder -->
-  <link name="base_of_shoulder">
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <mass value="0"/>
-      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
-    </inertial>
-    <!-- Part j2_servo -->
-    <visual>
-      <origin xyz="-0.0127266 0.021403 0.0237284" rpy="-0 -0 -0"/>
-      <geometry>
-        <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/j2_servo.stl"/>
-      </geometry>
-      <material name="j2_servo_material">
-        <color rgba="0.247059 0.247059 0.247059 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="-0.0127266 0.021403 0.0237284" rpy="-0 -0 -0"/>
-      <geometry>
-        <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/j2_servo.stl"/>
-      </geometry>
-    </collision>
-    <!-- Part base_of_shoulder -->
-    <visual>
-      <origin xyz="-0.0133535 0.025576 0.00282843" rpy="0 -0 -1.5708"/>
-      <geometry>
-        <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/base_of_shoulder.stl"/>
-      </geometry>
-      <material name="base_of_shoulder_material">
-        <color rgba="0.647059 0.647059 0.647059 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="-0.0133535 0.025576 0.00282843" rpy="0 -0 -1.5708"/>
-      <geometry>
-        <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/base_of_shoulder.stl"/>
-      </geometry>
-    </collision>
-    <!-- Part socker_j1 -->
-    <visual>
-      <origin xyz="-0.0175265 0.021403 0.00282843" rpy="-0 -0 -0"/>
-      <geometry>
-        <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/socker_j1.stl"/>
-      </geometry>
-      <material name="socker_j1_material">
-        <color rgba="0.647059 0.647059 0.647059 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="-0.0175265 0.021403 0.00282843" rpy="-0 -0 -0"/>
-      <geometry>
-        <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/socker_j1.stl"/>
-      </geometry>
-    </collision>
-  </link>
   <!-- Link base_servo_board -->
   <link name="base_servo_board">
     <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <mass value="0"/>
-      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+      <origin xyz="-0.0133535 0.0277534 0.0174126" rpy="0 0 0"/>
+      <mass value="0.129831"/>
+      <inertia ixx="0.000122021" ixy="0" ixz="-1e-12" iyy="0.00011993" iyz="-4.59013e-06" izz="0.000193858"/>
     </inertial>
     <!-- Part base_servo_board -->
     <visual>
-      <origin xyz="-0.0038 -0 -0.0398" rpy="0 0 0"/>
+      <origin xyz="-0.0133535 0.025576 0.00282843" rpy="0 -0 -1.5708"/>
       <geometry>
         <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/base_servo_board.stl"/>
       </geometry>
@@ -76,14 +20,14 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="-0.0038 -0 -0.0398" rpy="0 0 0"/>
+      <origin xyz="-0.0133535 0.025576 0.00282843" rpy="0 -0 -1.5708"/>
       <geometry>
         <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/base_servo_board.stl"/>
       </geometry>
     </collision>
     <!-- Part servo_motor_sts3215_v10 -->
     <visual>
-      <origin xyz="-0.0038 0 -0.0398" rpy="-0 -0 0"/>
+      <origin xyz="-0.0133535 0.025576 0.00282843" rpy="0 -0 -1.5708"/>
       <geometry>
         <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/servo_motor_sts3215_v10.stl"/>
       </geometry>
@@ -92,26 +36,74 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="-0.0038 0 -0.0398" rpy="-0 -0 0"/>
+      <origin xyz="-0.0133535 0.025576 0.00282843" rpy="0 -0 -1.5708"/>
       <geometry>
         <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/servo_motor_sts3215_v10.stl"/>
       </geometry>
     </collision>
   </link>
-  <!-- Joint from base_of_shoulder to base_servo_board -->
-  <joint name="Servor_1_to_waist" type="revolute">
-    <origin xyz="-0.0133535 0.021776 0.0426284" rpy="0 -0 -1.5708"/>
-    <parent link="base_of_shoulder"/>
-    <child link="base_servo_board"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-12.5664" upper="0"/>
-  </joint>
+  <!-- Link base_of_shoulder -->
+  <link name="base_of_shoulder">
+    <inertial>
+      <origin xyz="0.000212166 -0.000490641 -0.0181865" rpy="0 0 0"/>
+      <mass value="0.158649"/>
+      <inertia ixx="9.86914e-05" ixy="7.856e-09" ixz="3.75365e-07" iyy="9.48702e-05" iyz="-1.33715e-06" izz="0.00010186"/>
+    </inertial>
+    <!-- Part j2_servo -->
+    <visual>
+      <origin xyz="0.000373 -0.000626933 0.0189" rpy="-3.14159 0 -1.5708"/>
+      <geometry>
+        <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/j2_servo.stl"/>
+      </geometry>
+      <material name="j2_servo_material">
+        <color rgba="0.247059 0.247059 0.247059 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.000373 -0.000626933 0.0189" rpy="-3.14159 0 -1.5708"/>
+      <geometry>
+        <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/j2_servo.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part base_of_shoulder -->
+    <visual>
+      <origin xyz="-0.0038 0 0.0398" rpy="3.14159 -0 0"/>
+      <geometry>
+        <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/base_of_shoulder.stl"/>
+      </geometry>
+      <material name="base_of_shoulder_material">
+        <color rgba="0.647059 0.647059 0.647059 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0038 0 0.0398" rpy="3.14159 -0 0"/>
+      <geometry>
+        <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/base_of_shoulder.stl"/>
+      </geometry>
+    </collision>
+    <!-- Part socker_j1 -->
+    <visual>
+      <origin xyz="0.000373 0.004173 0.0398" rpy="-3.14159 -0 -1.5708"/>
+      <geometry>
+        <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/socker_j1.stl"/>
+      </geometry>
+      <material name="socker_j1_material">
+        <color rgba="0.647059 0.647059 0.647059 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.000373 0.004173 0.0398" rpy="-3.14159 -0 -1.5708"/>
+      <geometry>
+        <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/socker_j1.stl"/>
+      </geometry>
+    </collision>
+  </link>
   <!-- Link shoulder_left -->
   <link name="shoulder_left">
     <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <mass value="0"/>
-      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+      <origin xyz="1.782e-09 0.0588026 0.0179401" rpy="0 0 0"/>
+      <mass value="0.0926197"/>
+      <inertia ixx="0.000134917" ixy="3.1e-11" ixz="-3e-12" iyy="3.16373e-05" iyz="-7.45929e-07" izz="0.00011795"/>
     </inertial>
     <!-- Part shoulder_left -->
     <visual>
@@ -147,7 +139,7 @@
     </collision>
     <!-- Part j3_servo -->
     <visual>
-      <origin xyz="-0 -0.0679 0.0175809" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="0 -0.0679 0.0175809" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/j3_servo.stl"/>
       </geometry>
@@ -156,14 +148,14 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="-0 -0.0679 0.0175809" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="0 -0.0679 0.0175809" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/j3_servo.stl"/>
       </geometry>
     </collision>
     <!-- Part right_cover -->
     <visual>
-      <origin xyz="-0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/right_cover.stl"/>
       </geometry>
@@ -172,14 +164,14 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="-0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/right_cover.stl"/>
       </geometry>
     </collision>
     <!-- Part shoulder_right -->
     <visual>
-      <origin xyz="-0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/shoulder_right.stl"/>
       </geometry>
@@ -188,7 +180,7 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="-0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/shoulder_right.stl"/>
       </geometry>
@@ -197,13 +189,13 @@
   <!-- Link left_cover -->
   <link name="left_cover">
     <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <mass value="0"/>
-      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+      <origin xyz="1.757e-09 0.0585345 0.0179499" rpy="0 0 0"/>
+      <mass value="0.0917628"/>
+      <inertia ixx="0.000133948" ixy="3.2e-11" ixz="-3e-12" iyy="3.12113e-05" iyz="-5.94716e-07" izz="0.000117205"/>
     </inertial>
     <!-- Part right_cover_2 -->
     <visual>
-      <origin xyz="0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="-0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/right_cover.stl"/>
       </geometry>
@@ -212,7 +204,7 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="-0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/right_cover.stl"/>
       </geometry>
@@ -235,7 +227,7 @@
     </collision>
     <!-- Part elbow_right -->
     <visual>
-      <origin xyz="0 -0.0539 0.0175617" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="-0 -0.0539 0.0175617" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/elbow_right.stl"/>
       </geometry>
@@ -244,7 +236,7 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0 -0.0539 0.0175617" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="-0 -0.0539 0.0175617" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/elbow_right.stl"/>
       </geometry>
@@ -267,7 +259,7 @@
     </collision>
     <!-- Part j3_servo_2 -->
     <visual>
-      <origin xyz="0 -0.0539 0.0175809" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="-0 -0.0539 0.0175809" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/j3_servo__2.stl"/>
       </geometry>
@@ -276,7 +268,7 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0 -0.0539 0.0175809" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="-0 -0.0539 0.0175809" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/j3_servo__2.stl"/>
       </geometry>
@@ -285,9 +277,9 @@
   <!-- Link left_cover_2 -->
   <link name="left_cover_2">
     <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <mass value="0"/>
-      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+      <origin xyz="4.777e-09 0.0204021 0.0176066" rpy="0 0 0"/>
+      <mass value="0.0268203"/>
+      <inertia ixx="1.96673e-05" ixy="3e-12" ixz="0" iyy="1.51395e-05" iyz="3.634e-09" izz="8.15979e-06"/>
     </inertial>
     <!-- Part left_cover_3 -->
     <visual>
@@ -307,7 +299,7 @@
     </collision>
     <!-- Part left_cover_4 -->
     <visual>
-      <origin xyz="0 -0.0539 0.0176" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="-0 -0.0539 0.0176" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/left_cover__3.stl"/>
       </geometry>
@@ -316,50 +308,58 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0 -0.0539 0.0176" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="-0 -0.0539 0.0176" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/left_cover__3.stl"/>
       </geometry>
     </collision>
-    <!-- Part part_11 -->
+    <!-- Part top_arm -->
     <visual>
       <origin xyz="-0 -0.1499 0.0176" rpy="-1.5708 -1.5708 0"/>
       <geometry>
-        <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/part_11.stl"/>
+        <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/top_arm.stl"/>
       </geometry>
-      <material name="part_11_material">
+      <material name="top_arm_material">
         <color rgba="0.262745 0.282353 0.301961 1"/>
       </material>
     </visual>
     <collision>
       <origin xyz="-0 -0.1499 0.0176" rpy="-1.5708 -1.5708 0"/>
       <geometry>
-        <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/part_11.stl"/>
+        <mesh filename="file:///home/ninnin/Ninni_Robot_Arm/onshape_export/assets/top_arm.stl"/>
       </geometry>
     </collision>
   </link>
   <!-- Joint from left_cover to left_cover_2 -->
   <joint name="left_3_arm" type="revolute">
-    <origin xyz="-0 0.096 -1.91259e-05" rpy="-0 0 0.563091"/>
+    <origin xyz="0 0.096 -1.91259e-05" rpy="0 0 0"/>
     <parent link="left_cover"/>
     <child link="left_cover_2"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-2.65749" upper="1.5313"/>
+    <limit effort="10" velocity="10" lower="-2.0944" upper="2.0944"/>
   </joint>
   <!-- Joint from shoulder_left to left_cover -->
   <joint name="left_2_arm" type="revolute">
-    <origin xyz="-0 0.096 -1.91259e-05" rpy="0 0 -0.119662"/>
+    <origin xyz="0 0.096 -1.91259e-05" rpy="0 -0 0"/>
     <parent link="shoulder_left"/>
     <child link="left_cover"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-1.97473" upper="2.21406"/>
+    <limit effort="10" velocity="10" lower="-2.0944" upper="2.0944"/>
   </joint>
   <!-- Joint from base_of_shoulder to shoulder_left -->
   <joint name="left_1_arm" type="revolute">
-    <origin xyz="-0.0303266 0.021403 0.0916284" rpy="1.5708 0.629214 1.5708"/>
+    <origin xyz="0.000373 0.0169731 -0.049" rpy="-1.5708 -0 -3.14159"/>
     <parent link="base_of_shoulder"/>
     <child link="shoulder_left"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-0.906676" upper="2.1651"/>
+    <limit effort="10" velocity="10" lower="-1.5708" upper="1.5708"/>
+  </joint>
+  <!-- Joint from base_servo_board to base_of_shoulder -->
+  <joint name="Servor_1_to_waist" type="revolute">
+    <origin xyz="-0.0133535 0.021776 0.0426284" rpy="-3.14159 0 -1.5708"/>
+    <parent link="base_servo_board"/>
+    <child link="base_of_shoulder"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10" lower="-3.14159" upper="3.14159"/>
   </joint>
 </robot>

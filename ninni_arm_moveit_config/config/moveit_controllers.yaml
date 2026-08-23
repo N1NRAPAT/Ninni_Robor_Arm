@@ -1,15 +1,14 @@
 # MoveIt uses this configuration for controller management
-
 moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
-
 moveit_simple_controller_manager:
   controller_names:
-    - Ninni_arm_controller
-
-  Ninni_arm_controller:
+    - ninni_arm_controller
+  ninni_arm_controller:
     type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
     joints:
+      - Servor_1_to_waist
       - left_1_arm
       - left_2_arm
       - left_3_arm
-      - Servor_1_to_waist

@@ -2,12 +2,12 @@
     "configuration": "default",
     "documentId": "b026964aa62daf9c1ecc4815",
     "documentMicroversion": "c14cec39911da7bf3af2439e",
-    "elementId": "c295150f57147af0c179352a",
+    "elementId": "e3684f7fac8aea2323b49a13",
     "fullConfiguration": "default",
-    "id": "MI5YDQpuLOR4i9Tyz",
+    "id": "Mxh7GLCwYaJauqfr6",
     "isStandardContent": false,
-    "name": "shoulder_left <1>",
-    "partId": "R7GD",
+    "name": "Top_arm <1>",
+    "partId": "RjID",
     "suppressed": false,
     "type": "Part"
 }

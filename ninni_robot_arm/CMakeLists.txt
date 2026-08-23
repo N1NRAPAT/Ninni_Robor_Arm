@@ -24,6 +24,7 @@ install(PROGRAMS
   src/servo_src/servo_bridge_node.py
   src/servo_src/servo_dance_test.py
   src/servo_src/servo_plotter_node.py
+  src/servo_src/pose_sequence_node.py
   src/integrated_src/yolo_detect_node.py
   src/integrated_src/gesture_control_node.py
   DESTINATION lib/${PROJECT_NAME}

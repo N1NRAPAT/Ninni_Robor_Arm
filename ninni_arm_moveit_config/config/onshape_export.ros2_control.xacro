@@ -8,6 +8,13 @@
                 <!-- By default, set up controllers for simulation. This won't work on real hardware -->
                 <plugin>mock_components/GenericSystem</plugin>
             </hardware>
+            <joint name="Servor_1_to_waist">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['Servor_1_to_waist']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
             <joint name="left_1_arm">
                 <command_interface name="position"/>
                 <state_interface name="position">
@@ -30,13 +37,6 @@
                 <state_interface name="velocity"/>
             </joint>
 
-            <joint name="Servor_1_to_waist">
-                <command_interface name="position"/>
-                <state_interface name="position">
-                  <param name="initial_value">${initial_positions['Servor_1_to_waist']}</param>
-                </state_interface>
-                <state_interface name="velocity"/>
-            </joint>
         </ros2_control>
     </xacro:macro>
 </robot>

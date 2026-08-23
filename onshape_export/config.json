@@ -1,5 +1,4 @@
 {
     "url": "https://cad.onshape.com/documents/b026964aa62daf9c1ecc4815/w/b181745cba52742b3ffb21e6/e/5ac1da73cba8f2619ef0b056",
-    "output_format": "urdf",
-    "no_dynamics": true 
+    "output_format": "urdf"
 }
