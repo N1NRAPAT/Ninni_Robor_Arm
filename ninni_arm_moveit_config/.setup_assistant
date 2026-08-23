@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: ninni_robot_arm
+    relative_path: urdf/ninni_arm.urdf
+  srdf:
+    relative_path: config/onshape_export.srdf
+  package_settings:
+    author_name: Ninrapat
+    author_email: ninninrapat@gmail.com
+    generated_timestamp: 1787403191
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

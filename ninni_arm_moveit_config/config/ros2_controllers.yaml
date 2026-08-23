@@ -1,0 +1,24 @@
+# This config file is used by ros2_control
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    Ninni_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+Ninni_arm_controller:
+  ros__parameters:
+    joints:
+      - left_1_arm
+      - left_2_arm
+      - left_3_arm
+      - Servor_1_to_waist
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity

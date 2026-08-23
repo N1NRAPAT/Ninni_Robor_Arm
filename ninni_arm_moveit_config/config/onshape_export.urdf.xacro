@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="onshape_export">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import onshape_export urdf file -->
+    <xacro:include filename="$(find ninni_robot_arm)/urdf/ninni_arm.urdf" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="onshape_export.ros2_control.xacro" />
+
+
+    <xacro:onshape_export_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

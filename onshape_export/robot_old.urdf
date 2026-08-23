@@ -67,7 +67,7 @@
     </inertial>
     <!-- Part base_servo_board -->
     <visual>
-      <origin xyz="-0.0038 -0 -0.0398" rpy="0 0 0"/>
+      <origin xyz="-0.0038 -0 -0.0398" rpy="0 0 -0"/>
       <geometry>
         <mesh filename="package://assets/base_servo_board.stl"/>
       </geometry>
@@ -76,14 +76,14 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="-0.0038 -0 -0.0398" rpy="0 0 0"/>
+      <origin xyz="-0.0038 -0 -0.0398" rpy="0 0 -0"/>
       <geometry>
         <mesh filename="package://assets/base_servo_board.stl"/>
       </geometry>
     </collision>
     <!-- Part servo_motor_sts3215_v10 -->
     <visual>
-      <origin xyz="-0.0038 0 -0.0398" rpy="-0 -0 0"/>
+      <origin xyz="-0.0038 0 -0.0398" rpy="-0 0 -0"/>
       <geometry>
         <mesh filename="package://assets/servo_motor_sts3215_v10.stl"/>
       </geometry>
@@ -92,7 +92,7 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="-0.0038 0 -0.0398" rpy="-0 -0 0"/>
+      <origin xyz="-0.0038 0 -0.0398" rpy="-0 0 -0"/>
       <geometry>
         <mesh filename="package://assets/servo_motor_sts3215_v10.stl"/>
       </geometry>
@@ -104,7 +104,7 @@
     <parent link="base_of_shoulder"/>
     <child link="base_servo_board"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-12.5664" upper="0"/>
+    <limit effort="10" velocity="10" lower="-3.14159" upper="3.14159"/>
   </joint>
   <!-- Link shoulder_left -->
   <link name="shoulder_left">
@@ -147,7 +147,7 @@
     </collision>
     <!-- Part j3_servo -->
     <visual>
-      <origin xyz="-0 -0.0679 0.0175809" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="0 -0.0679 0.0175809" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="package://assets/j3_servo.stl"/>
       </geometry>
@@ -156,14 +156,14 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="-0 -0.0679 0.0175809" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="0 -0.0679 0.0175809" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="package://assets/j3_servo.stl"/>
       </geometry>
     </collision>
     <!-- Part right_cover -->
     <visual>
-      <origin xyz="-0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="package://assets/right_cover.stl"/>
       </geometry>
@@ -172,14 +172,14 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="-0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="package://assets/right_cover.stl"/>
       </geometry>
     </collision>
     <!-- Part shoulder_right -->
     <visual>
-      <origin xyz="-0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="package://assets/shoulder_right.stl"/>
       </geometry>
@@ -188,7 +188,7 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="-0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="package://assets/shoulder_right.stl"/>
       </geometry>
@@ -203,7 +203,7 @@
     </inertial>
     <!-- Part right_cover_2 -->
     <visual>
-      <origin xyz="0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="-0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="package://assets/right_cover.stl"/>
       </geometry>
@@ -212,7 +212,7 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="-0 -0.0679 0.0175617" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="package://assets/right_cover.stl"/>
       </geometry>
@@ -235,7 +235,7 @@
     </collision>
     <!-- Part elbow_right -->
     <visual>
-      <origin xyz="0 -0.0539 0.0175617" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="-0 -0.0539 0.0175617" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="package://assets/elbow_right.stl"/>
       </geometry>
@@ -244,7 +244,7 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0 -0.0539 0.0175617" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="-0 -0.0539 0.0175617" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="package://assets/elbow_right.stl"/>
       </geometry>
@@ -267,7 +267,7 @@
     </collision>
     <!-- Part j3_servo_2 -->
     <visual>
-      <origin xyz="0 -0.0539 0.0175809" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="-0 -0.0539 0.0175809" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="package://assets/j3_servo__2.stl"/>
       </geometry>
@@ -276,7 +276,7 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0 -0.0539 0.0175809" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="-0 -0.0539 0.0175809" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="package://assets/j3_servo__2.stl"/>
       </geometry>
@@ -348,11 +348,11 @@
   </joint>
   <!-- Joint from shoulder_left to left_cover -->
   <joint name="left_2_arm" type="revolute">
-    <origin xyz="-0 0.096 -1.91259e-05" rpy="-0 -0 -0"/>
+    <origin xyz="0 0.096 -1.91259e-05" rpy="0 -0 0"/>
     <parent link="shoulder_left"/>
     <child link="left_cover"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-2.26893" upper="2.26893"/>
+    <limit effort="10" velocity="10" lower="-2.0944" upper="2.0944"/>
   </joint>
   <!-- Joint from base_of_shoulder to shoulder_left -->
   <joint name="left_1_arm" type="revolute">
@@ -360,6 +360,6 @@
     <parent link="base_of_shoulder"/>
     <child link="shoulder_left"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-1.65806" upper="1.65806"/>
+    <limit effort="10" velocity="10" lower="-1.5708" upper="1.5708"/>
   </joint>
 </robot>

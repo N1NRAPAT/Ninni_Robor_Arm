@@ -1,0 +1,7 @@
+# Default initial positions for onshape_export's ros2_control fake system
+
+initial_positions:
+  Servor_1_to_waist: 0
+  left_1_arm: 0
+  left_2_arm: 0
+  left_3_arm: 0
