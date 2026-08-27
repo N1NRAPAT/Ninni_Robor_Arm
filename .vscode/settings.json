@@ -1,3 +1,10 @@
 {
-    "cmake.sourceDirectory": "/wsl.localhost/Ubuntu-22.04/home/ninnin/Ninni_Robot_Arm/ninni_robot_arm"
+    "cmake.sourceDirectory": "/wsl.localhost/Ubuntu-22.04/home/ninnin/Ninni_Robot_Arm/ninni_robot_arm",
+    "python.analysis.extraPaths": [
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.defaultInterpreterPath": "/usr/bin/python3",
+    "python-envs.defaultEnvManager": "ms-python.python:system"
 }
+

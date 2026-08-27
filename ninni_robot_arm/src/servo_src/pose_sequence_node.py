@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
-"""Replay a fixed sequence of joint poses via FollowJointTrajectory."""
+"""Replay a sequence of joint poses via FollowJointTrajectory.
+Angles are entered by the user in DEGREES and converted to radians before use.
+Optionally recenters to pose 'A' before every move."""
 
 import time
+import math
 import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionClient
@@ -11,22 +14,46 @@ from builtin_interfaces.msg import Duration
 
 JOINT_NAMES = ['Servor_1_to_waist', 'left_1_arm', 'left_2_arm', 'left_3_arm']
 
-# EDIT THESE -- radians, in the order above
-POSES = {
-    'A': [0.0,  0.0,  0.0,  0.0],
-    'B': [0.8, -0.5,  0.6, -0.3],
-    'C': [-0.8, 0.4, -0.6,  0.3],
-}
-
-SEQUENCE = ['A', 'B', 'A', 'C', 'A']
-SECONDS_PER_MOVE = 3.0
+SEQUENCE = ['B', 'C']          # poses you actually want to visit (A is the recenter pose)
+RECENTER_BEFORE_EACH = True    # if True, inserts pose 'A' before every non-A move
+SECONDS_PER_MOVE = 6.0         # increase for slower/smoother motion
 LOOP_FOREVER = True
-PAUSE_BETWEEN_CYCLES = 1.0
+PAUSE_BETWEEN_CYCLES = 3.0
+
+
+def prompt_pose(label):
+    """Ask the user for 4 joint angles (degrees) for pose `label`, convert to radians."""
+    while True:
+        raw = input(
+            f"Enter angles for pose {label} "
+            f"[{', '.join(JOINT_NAMES)}] (degrees, space-separated): "
+        ).strip()
+        parts = raw.split()
+        if len(parts) != len(JOINT_NAMES):
+            print(f"  need {len(JOINT_NAMES)} values, got {len(parts)} -- try again")
+            continue
+        try:
+            degrees = [float(p) for p in parts]
+        except ValueError:
+            print("  couldn't parse one of those as a number -- try again")
+            continue
+
+        radians = [math.radians(d) for d in degrees]
+        print(f"  -> radians: {[round(r, 4) for r in radians]}")
+        return radians
+
+
+def prompt_all_poses():
+    poses = {}
+    for label in ['A', 'B', 'C']:
+        poses[label] = prompt_pose(label)
+    return poses
 
 
 class PoseSequence(Node):
-    def __init__(self):
+    def __init__(self, poses):
         super().__init__('pose_sequence_node')
+        self.poses = poses
         self.client = ActionClient(
             self, FollowJointTrajectory,
             '/ninni_arm_controller/follow_joint_trajectory')
@@ -40,10 +67,17 @@ class PoseSequence(Node):
             cycle += 1
             self.get_logger().info(f'--- cycle {cycle} ---')
             for name in SEQUENCE:
-                self.get_logger().info(f'moving to pose {name}')
-                self.send_pose(POSES[name])
+                if RECENTER_BEFORE_EACH and name != 'A':
+                    self.get_logger().info(f'recentering to A before {name}')
+                    self.send_pose(self.poses['A'])
+                    if not rclpy.ok():
+                        return
+
+                self.get_logger().info(f'moving to pose {name}: {self.poses[name]}')
+                self.send_pose(self.poses[name])
                 if not rclpy.ok():
                     return
+
             if not LOOP_FOREVER:
                 break
             time.sleep(PAUSE_BETWEEN_CYCLES)
@@ -75,8 +109,10 @@ class PoseSequence(Node):
 
 
 def main():
+    poses = prompt_all_poses()
+
     rclpy.init()
-    node = PoseSequence()
+    node = PoseSequence(poses)
     try:
         node.run()
     except KeyboardInterrupt:
