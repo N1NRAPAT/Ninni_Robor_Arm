@@ -10,12 +10,6 @@ find_package(ament_cmake_python REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)
 
-# C++ nodes
-add_executable(arm_rotator src/arm_rotator.cpp)
-ament_target_dependencies(arm_rotator rclcpp sensor_msgs)
-install(TARGETS arm_rotator
-  DESTINATION lib/${PROJECT_NAME})
-
 # Python nodes
 install(PROGRAMS
   src/camera_src/camera_pub.py
@@ -24,9 +18,9 @@ install(PROGRAMS
   src/servo_src/servo_bridge_node.py
   src/servo_src/servo_dance_test.py
   src/servo_src/servo_plotter_node.py
-  src/servo_src/pose_sequence_node.py
-  src/servo_src/ik_workspace_sweep.py
-  src/servo_src/ik_analytic_node.py
+  src/movement_sim/pose_sequence_node.py
+  src/movement_sim/ik_workspace_sweep.py
+  src/movement_sim/ik_analytic_node.py
   src/integrated_src/yolo_detect_node.py
   src/integrated_src/gesture_control_node.py
   DESTINATION lib/${PROJECT_NAME}
