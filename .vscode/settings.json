@@ -5,6 +5,18 @@
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
     ],
     "python.defaultInterpreterPath": "/usr/bin/python3",
-    "python-envs.defaultEnvManager": "ms-python.python:system"
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+
+    "workbench.colorCustomizations": {
+    "terminal.background": "#2d0a30",
+    "terminal.foreground": "#e0d0e8",
+    "terminal.ansiRed": "#ff5555",
+    "terminal.ansiBrightRed": "#ff6e6e",
+    "terminal.ansiMagenta": "#bd93f9",
+    "terminal.ansiBrightMagenta": "#d6acff",
+    "terminal.ansiBlack": "#1a0a1f",
+    "terminal.ansiBrightBlack": "#44475a"
+    },
+
 }
 
